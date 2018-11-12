@@ -6,9 +6,7 @@ function placecommand(x,y,f) {
 
     console.log("Inside placecommand");
     var jsondataf = fs.readFileSync('./datafile.json');
-    var jdataf = JSON.parse(jsondataf);
-
-    
+    var jdataf = JSON.parse(jsondataf);   
     
            
     if(f === "EAST" || f === "WEST" || f === "NORTH" || f === "SOUTH") {

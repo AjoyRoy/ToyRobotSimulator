@@ -32,9 +32,7 @@ exports.place_command = function(req, res, next) {
            
     if(fvalid === true && xvalid === true && yvalid === true) {
         data_update.placecommand(xvalue, yvalue, fvalue);
-        //console.log("after place command");
         data_update.SetPlaceCommandExecuted(true);
-        console.log("after set place command");
         //  isPlaceCommandExecuted = true;
         var jsondata1 = fs.readFileSync('./datafile.json');
         var jdata1 = JSON.parse(jsondata1);

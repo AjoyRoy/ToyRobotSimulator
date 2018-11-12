@@ -16,5 +16,8 @@ LEFT: http://localhost:3000/api/left
 RIGHT: http://localhost:3000/api/right
 REPORT: http://localhost:3000/api/report
 
+Find all the test scenarios/cases published on Postman
+https://documenter.getpostman.com/view/2452270/RzZ9HKLZ
+
 
 

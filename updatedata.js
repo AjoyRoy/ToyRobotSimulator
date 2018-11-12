@@ -4,7 +4,6 @@ var config_data = require('./ConfigData.json');
 
 function placecommand(x,y,f) {
 
-    console.log("Inside placecommand");
     var jsondataf = fs.readFileSync('./datafile.json');
     var jdataf = JSON.parse(jsondataf);   
     
@@ -20,8 +19,7 @@ function placecommand(x,y,f) {
         if(err) return console.log(err);
         
     });
-    console.log("Updated Place command successfully");  
-    
+       
     
 }
 

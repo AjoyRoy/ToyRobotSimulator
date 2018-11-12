@@ -28,8 +28,7 @@ exports.place_command = function(req, res, next) {
     if(yvalue === 0 || yvalue === 1 || yvalue === 2 || yvalue === 3 || yvalue === 4 || yvalue === 5) {
         yvalid = true;
     }
-    console.log("xvalidmmmmmmmmmmmmmm = "+xvalid);
-           
+               
     if(fvalid === true && xvalid === true && yvalid === true) {
         data_update.placecommand(xvalue, yvalue, fvalue);
         data_update.SetPlaceCommandExecuted(true);
@@ -218,10 +217,17 @@ exports.right_command = function(req, res, next) {
     exports.report_command = function(req, res, next) {
         var jsondata = fs.readFileSync('./datafile.json');
         var jdata = JSON.parse(jsondata);
-                    
+        
+        if(data_update.GetPlaceCommandExecuted()) {
         res.send(jdata);           
         
-        };
+        }
+        else {
+
+            res.send("You need to make PLACE command first before you begin your move"); 
+
+        }
+    };
 
     exports.robot_list = function(req, res, next) {
         

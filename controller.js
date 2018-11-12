@@ -15,14 +15,27 @@ exports.place_command = function(req, res, next) {
     var fvalue = req.params.fval;
     var xvalue = parseInt(req.params.xval);
     var yvalue = parseInt(req.params.yval);
-       
+    var fvalid = false;
+    var xvalid = false;
+    var yvalid = false;
+
     if(fvalue === "EAST" || fvalue === "WEST" || fvalue === "NORTH" || fvalue === "SOUTH") {
+        fvalid = true;
+    }
+    if(xvalue === 0 || xvalue === 1 || xvalue === 2 || xvalue === 3 || xvalue === 4 || xvalue === 5) {
+        xvalid = true;
+    }
+    if(yvalue === 0 || yvalue === 1 || yvalue === 2 || yvalue === 3 || yvalue === 4 || yvalue === 5) {
+        yvalid = true;
+    }
+    console.log("xvalidmmmmmmmmmmmmmm = "+xvalid);
+           
+    if(fvalid === true && xvalid === true && yvalid === true) {
         data_update.placecommand(xvalue, yvalue, fvalue);
-        console.log("after place command");
+        //console.log("after place command");
         data_update.SetPlaceCommandExecuted(true);
         console.log("after set place command");
         //  isPlaceCommandExecuted = true;
-        console.log("isPlaceCommandExecuted in place_command = " +data_update.GetPlaceCommandExecuted());
         var jsondata1 = fs.readFileSync('./datafile.json');
         var jdata1 = JSON.parse(jsondata1);
         res.send(jdata1);
@@ -42,10 +55,7 @@ exports.move_command = function(req, res, next) {
     var y = jdata.Y;
     var f = jdata.F;
 
-   console.log("F = " +f);
-   console.log("X = " +x);
-   console.log("Y = " +y);
-  
+     
  // if(isPlaceCommandExecuted) {
     if(data_update.GetPlaceCommandExecuted()) {
       
@@ -121,9 +131,7 @@ exports.move_command = function(req, res, next) {
       
     }
     
-    console.log("isPlaceCommandExecuted = " +data_update.GetPlaceCommandExecuted());
-    console.log("isValidCommand = " +data_update.GetValidCommand());
-    console.log("validMove = " +validMove);
+    
    if(data_update.GetPlaceCommandExecuted() === false || data_update.GetValidCommand() === false || validMove === false) {
     res.end(message);
   }
@@ -232,8 +240,7 @@ exports.right_command = function(req, res, next) {
         
         myRobot = req.params.roboname;
 
-       console.log("Robot selected = " +myRobot);
-
+       
        if (myRobot === "RobotA" || myRobot === "RobotB" || myRobot === "RobotC") {
       // Bad request 400
         res.send("You are going to control " +myRobot);

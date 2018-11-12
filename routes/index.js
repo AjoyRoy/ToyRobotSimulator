@@ -4,7 +4,7 @@ var router = express.Router();
 
 var controller = require('../controller.js');
 
-/* GET home page. */
+/* GET home page...*/
 router.get('/api/help', controller.help);
  
 /* Display List of available Robots. */

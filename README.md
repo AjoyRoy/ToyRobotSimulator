@@ -10,7 +10,7 @@ Output is delivered in JSON data.
 
 How to run/test app.
 
-PLACE: http://localhost:3000/api/place/0/1/NORTH  (API for PLACE command) (0 indicates x-dimension, and 1 indicates y-dimension and NORTH is facing.Facing is case-sensitive)
+PLACE: http://localhost:3000/api/place/0/1/NORTH  (API for PLACE command) (0 indicates x-dimension, and 1 indicates y-dimension and facing is NORTH. Facing input is case-sensitive.)
 MOVE: http://localhost:3000/api/move  (API for MOVE command)
 LEFT: http://localhost:3000/api/left  (API for LEFT command)
 RIGHT: http://localhost:3000/api/right (API for RIGHT command)
